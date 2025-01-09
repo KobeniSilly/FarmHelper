@@ -7,35 +7,10 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Get Gradle version and check if it's pre release
-        run: |
-          VERSION=$(grep -Po '^version=.*' gradle.properties | cut -d= -f2)
-          VERSION=${VERSION#[[:space:]]}
-          SHOULD_RELEASE=$(grep -Po '^shouldRelease=.*' gradle.properties | cut -d= -f2)
-          SHOULD_RELEASE=${SHOULD_RELEASE#[[:space:]]}
-          echo "$VERSION"
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
-          if [[ $VERSION == *-pre* ]]
-          then
-            echo "Version is pre-release"
-            RELEASE_TYPE="pre-release"
-          else
-            echo "Version is full release"
-            RELEASE_TYPE="full"
-          fi
-          echo "Version is $VERSION and release type is $RELEASE_TYPE"
-          echo "RELEASE_TYPE=$RELEASE_TYPE" >> $GITHUB_OUTPUT
-          echo "shouldRelease=$SHOULD_RELEASE" >> $GITHUB_OUTPUT
-        id: get_version
-
-      - name: Get short commit sha
-        id: short_sha
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-
       - uses: actions/setup-java@v4
         name: Setup Java
         with:
-          distribution: graalvm
+          distribution: zulu
           java-version: 17
 
       - uses: gradle/actions/setup-gradle@v3
