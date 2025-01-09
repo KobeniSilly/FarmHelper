@@ -5,9 +5,9 @@ plugins {
     java
     id("cc.polyfrost.loom") version "0.10.0.+"
     id("dev.architectury.architectury-pack200") version "0.1.3"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
-//    id("io.freefair.lombok") version "8.6"
-    id("net.kyori.blossom") version "1.3.2"
+    id("com.gradleup.shadow") version "9.0.0-beta4"
+//    id("io.freefair.lombok") version "8.11"
+    id("net.kyori.blossom") version "2.1.0"
 }
 
 //Constants:
@@ -75,20 +75,20 @@ dependencies {
     mappings("de.oceanlabs.mcp:mcp_stable:22-1.8.9")
     forge("net.minecraftforge:forge:1.8.9-11.15.1.2318-1.8.9")
 
-    compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.2.1-alpha+")
+    compileOnly("cc.polyfrost:oneconfig-1.8.9-forge:0.2.2-alpha+")
     shadowImpl("cc.polyfrost:oneconfig-wrapper-launchwrapper:1.0.0-beta+")
 
-    compileOnly("org.spongepowered:mixin:0.8.5")
-    annotationProcessor("org.spongepowered:mixin:0.8.5")
+    compileOnly("org.spongepowered:mixin:0.8.7")
+    annotationProcessor("org.spongepowered:mixin:0.8.7")
 
-    compileOnly("org.projectlombok:lombok:1.18.34")
-    annotationProcessor("org.projectlombok:lombok:1.18.34")
+    compileOnly("org.projectlombok:lombok:1.18.36")
+    annotationProcessor("org.projectlombok:lombok:1.18.36")
 
-    shadowImpl("org.java-websocket:Java-WebSocket:1.5.4")
+    shadowImpl("org.java-websocket:Java-WebSocket:1.6.0")
 
     runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.2.1")
 
-    implementation("net.dv8tion:JDA:5.0.0-beta.24")
+    implementation("net.dv8tion:JDA:5.2.2")
 
     implementation("com.github.onixiya1337.baritone-fly:baritone-deobf:7cc4ce43d3")
     shadowImpl("com.github.onixiya1337.baritone-fly:baritone-api-forge:7cc4ce43d3") {
